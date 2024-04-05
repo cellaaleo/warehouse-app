@@ -20,7 +20,10 @@ gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
-end
+  gem "rspec-rails"
+  gem "capybara"  # depois de add o rspec e o capybara aqui, no terminal digitamos 'bundle install' p/ ele instalar estas 2 gems
+end               # alem disso, fizemos o 'rails generate rspec:install'. Aí, já podemos dar o primeiro 'rspec' no terminal
+                  # é criada uma pasa spec
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
