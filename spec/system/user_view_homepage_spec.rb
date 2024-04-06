@@ -23,6 +23,7 @@ describe 'Usuário visita tela inicial' do
 
     # ASSERT
     #garantir que eu veja na tela os galpoes Rio e Maceio
+    expect(page).not_to have_content('Não existem galpões cadastrados.')
     expect(page).to have_content('Rio')
     expect(page).to have_content('Código: SDU')
     expect(page).to have_content('Cidade: Rio de Janeiro')
@@ -32,6 +33,17 @@ describe 'Usuário visita tela inicial' do
     expect(page).to have_content('Código: MCZ')
     expect(page).to have_content('Cidade: Maceio')
     expect(page).to have_content('50000 m2')
+  end # o rails entende ser teste e, quando um teste específico termina, os galpões aqui criados são apagados. 
+      # Assim, o teste a seguir ocorrerá sem necessidade de apagar manualmente os cadastros.
+
+  it 'e não existem galpões cadastrados' do
+    # Arrange
+
+    # Act
+    visit('/')
+
+    # Assert
+    expect(page).to have_content('Não existem galpões cadastrados.')
   end
 end
 
