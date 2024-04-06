@@ -32,8 +32,8 @@ end
 RSpec.configure do |config|
 
   config.before(type: :system) do   # todos os testes do tipo system
-    driven_by(:rack_test)           # serão executados pelo rack_test (é um navegador falso para que o capybara não fique
-  end                               # abrindo um navegador o tempo todo para o teste. Mas o teste ocorre sim! - com pequenas limitações, mas com mais velocidade)
+    driven_by(:rack_test)           # serão executados pelo rack_test (é um navegador falso para que o capybara não fique abrindo um navegador
+  end                               # o tempo todo para o teste. Mas o teste ocorre sim! - com pequenas limitações, mas com mais velocidade)
 
 
 
