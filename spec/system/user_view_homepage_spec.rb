@@ -11,11 +11,33 @@ describe 'Usuário visita tela inicial' do
     # ASSERT
     expect(page).to have_content('Galpões & Estoque')
   end
+
+  it 'e vê os galpões cadastrados' do
+    # ARRANGE
+    #cadastrar 2 galpoes: Rio e Maceio
+    Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60_000)
+    Warehouse.create(name: 'Maceio', code: 'MCZ', city: 'Maceio', area: 50_000)
+
+    # ACT
+    visit('/')
+
+    # ASSERT
+    #garantir que eu veja na tela os galpoes Rio e Maceio
+    expect(page).to have_content('Rio')
+    expect(page).to have_content('Código: SDU')
+    expect(page).to have_content('Cidade: Rio de Janeiro')
+    expect(page).to have_content('60000 m2')
+
+    expect(page).to have_content('Maceio')
+    expect(page).to have_content('Código: MCZ')
+    expect(page).to have_content('Cidade: Maceio')
+    expect(page).to have_content('50000 m2')
+  end
 end
 
 #o arquivo de teste tem que terminar com '_spec.rb' pra ser reconhecido
 
-# ARRANGE --> neste teste, pode estar vazio, é apenas o de abrir a aplicação
+# ARRANGE --> no 1º teste, pode estar vazio pois é apenas o de abrir a aplicação
 
 # visit é um método de sistema que vai abrir uma página. No caso, o caminho é a página inicial
 # o rspec capybara vai abrir o navegador de mentirinha e vai acessar o localhost:3000/ e vai dar 'enter'
