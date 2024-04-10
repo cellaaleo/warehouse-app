@@ -8,5 +8,15 @@
   <strong>Endereço: </strong> <%= "#{@warehouse.address} CEP: #{@warehouse.cep}" %>
 </div>
 
-<%= link_to('Editar', edit_warehouse_path(@warehouse))%>
-<%= link_to('Voltar', root_path)%>
+
+<div>
+  <%= link_to('Editar', edit_warehouse_path(@warehouse))%>
+  <%= button_to('Remover', warehouse_path(@warehouse.id), method: :delete) %>
+</div>
+
+<div>
+  <%= link_to('Voltar', root_path)%>
+</div>
+
+<%#link_to, por padrão faz um GET. Pra operação tipo POST ou DETELE, 
+o button_to é mais recomendado%>
