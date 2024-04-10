@@ -1,13 +1,4 @@
-<h1>Novo galpão</h1>
-
-<% if(@warehouse.errors.any?) %>
-  <p>Verifique os erros abaixo:</p>
-  <ul>
-    <% @warehouse.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+Editar galpão
 
 <%= form_with(model: @warehouse) do |f| %>
   <div>
@@ -42,3 +33,4 @@
     <%= f.submit 'Enviar' %>
   </div>
 <% end %>
+  
