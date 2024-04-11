@@ -12,8 +12,15 @@ class ProductModelsController < ApplicationController
   def create
     @product_model = ProductModel.new(product_model_params)
 
-    @product_model.save
-    redirect_to @product_model, notice: 'Modelo de produto cadastrado com sucesso'
+    if @product_model.save
+      redirect_to @product_model, notice: 'Modelo de produto cadastrado com sucesso'
+    else
+      @suppliers = Supplier.all 
+        #=> aqui e não fora o IF pois essa @var não precisa ser carregada se td for preenchido corretamente
+        #=> aqui para não dar problema ao fazer render pois o collection_select  precisa dessa @var
+      flash.now[:notice] = 'Não foi possível cadastrar o modelo de produto'
+      render 'new'  # => o render converte o arquivo de view para uma string cheia de html
+    end
   end
 
   def show
