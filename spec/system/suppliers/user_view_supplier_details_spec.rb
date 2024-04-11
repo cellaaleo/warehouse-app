@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Usuário vê detalhes do fornecedor' do 
-  it 'ao clicar em seu nome' do
+  it 'a partir da página inicial' do
     # ARRANGE
     Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '12345678/9000-00',
                     full_address: 'Av. das Palmas, 100', city: 'Bauru', state: 'SP', email: 'contato@acme.com')
@@ -13,10 +13,10 @@ describe 'Usuário vê detalhes do fornecedor' do
     click_on 'ACME'
 
     # ASSERT  (o expect tb pode usar o within)
-    expect(page).to have_content 'ACME LTDA'
-    expect(page).to have_content 'CNPJ: 12345678/9000-00'
-    expect(page).to have_content 'Endereço: Av. das Palmas, 100'
-    expect(page).to have_content 'E-mail: contato@acme.com'
+    expect(page).to have_content('ACME LTDA')
+    expect(page).to have_content('CNPJ: 12345678/9000-00')
+    expect(page).to have_content('Endereço: Av. das Palmas, 100')
+    expect(page).to have_content('E-mail: contato@acme.com')
   end
 
 

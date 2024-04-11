@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Usuário edita de um galpão' do  #ao clicar no nome do galpão
+describe 'Usuário edita dados de um galpão' do  #ao clicar no nome do galpão
   it 'a partir da página de detalhes' do
     #Arrange: criar um galpão no banco de dados
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
@@ -43,7 +43,7 @@ describe 'Usuário edita de um galpão' do  #ao clicar no nome do galpão
     expect(page).to have_content 'CEP: 16000-000'
   end
 
-  it 'com sucesso' do
+  it 'com dados incompletos' do
     #Arrange
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                                   address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
@@ -57,7 +57,7 @@ describe 'Usuário edita de um galpão' do  #ao clicar no nome do galpão
     fill_in 'Endereço', with: ''
     click_on 'Enviar'
     #Assert
-    expect(page).to have_content 'Não foi possível atualizar o galpão'
+    expect(page).to have_content('Não foi possível atualizar o galpão')
     expect(page).to have_field('Nome', with: '')
   end
 end
