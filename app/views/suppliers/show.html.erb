@@ -1,0 +1,7 @@
+<h1><%= @supplier.corporate_name %></h1>
+
+<p>CNPJ: <%= @supplier.registration_number %></p>
+<p>Endereço: <%= "#{@supplier.full_address} - #{@supplier.city} - #{@supplier.state}" %></p>
+<p>E-mail: <%= @supplier.email %></p>
+
+<%= link_to 'Voltar', root_path%>

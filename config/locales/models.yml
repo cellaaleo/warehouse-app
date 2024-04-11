@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       warehouse: 'galpão'
+      supplier: 'fornecedor'
     attributes:
       warehouse:
         name: "Nome"
@@ -10,7 +11,14 @@ pt-BR:
         description: "Descrição do galpão"
         address: "Endereço"
         cep: "CEP"
-        area: "Área"
-      # will translate User attribute "login" as "Handle"
+        area: "Área"  
+      supplier:
+        brand_name: "Nome fantasia"
+        corporate_name: "Razão Social"
+        registration_number: "CNPJ"
+        full_address: "Endereço"
+        city: "Cidade"
+        state: "Estado"
+        email: "E-mail"
 
 # copiamos de: https://guides.rubyonrails.org/i18n.html#translations-for-active-record-models

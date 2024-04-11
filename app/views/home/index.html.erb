@@ -1,16 +1,13 @@
-<p><%= I18n.translate('hello') %></p>
-<p><%= I18n.localize(Date.today) %></p>
-
 <section id="warehouses">
   <h2>Galpões</h2>
 
   <div>
-  <%= link_to 'Cadastrar galpão', new_warehouse_path %>
+    <%= link_to 'Cadastrar galpão', new_warehouse_path %>
   </div>
 
   <% @warehouses.each do |w| %>
     <div>
-      <h3><%= link_to(w.name, warehouse_path(w.id)) %></h3>
+      <h3><%= link_to(w.name, w) %></h3>
       <dl>
         <dt>Código:</dt>
         <dd><%= w.code %></dd>
@@ -27,7 +24,3 @@
   <% end %>
 
 </section>
-
-
-
-<%# dl = description list de pares: um termo (dt) e uma descrição (dd) %>
