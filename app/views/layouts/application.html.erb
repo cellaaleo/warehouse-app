@@ -15,13 +15,19 @@
       <nav>
         <%= link_to 'Fornecedores', suppliers_path %>
         <%= link_to 'Modelos de produtos', product_models_path %>
+        <% if user_signed_in? %>
+          <%= current_user.email %>
+          <%= link_to 'Sair', root_path %>
+        <% else %>
+          <%= link_to 'Entrar', new_user_session_path %>
+        <% end %>
       </nav>
     </header>
 
     <main>
       <div>
-        <%= alert %>
-        <%= notice %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       </div>
       <%= yield %>
     </main>
