@@ -1,5 +1,6 @@
 class ProductModelsController < ApplicationController
-  before_action :set_product_model, only: [:show]
+  before_action :authenticate_user!, only: [:index]
+
   def index
     @product_models = ProductModel.all
   end
@@ -24,6 +25,7 @@ class ProductModelsController < ApplicationController
   end
 
   def show
+    set_product_model
   end
 
   private

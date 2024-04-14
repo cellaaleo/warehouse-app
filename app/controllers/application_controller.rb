@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  #before_action :authenticate_user! --> se precisasse de login p/ toda a aplicação, deixaria aqui
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
