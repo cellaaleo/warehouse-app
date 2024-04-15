@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @order = Order.new
     @warehouses = Warehouse.all
@@ -21,5 +21,3 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 end
-
-# <%= @order.user.name%> | <%=<@order.user.email> %>
