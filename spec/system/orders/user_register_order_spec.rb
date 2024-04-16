@@ -26,8 +26,11 @@ describe 'usuário cadastra um pedido' do
     Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '12345678/9000-00',
                      full_address: 'Av. das Palmas, 100', city: 'Bauru', state: 'SP', email: 'contato@acme.com')
     supplier = Supplier.create!(corporate_name: 'Dell Ltda', brand_name: 'Dell', registration_number: '25222555/2000-50',
-              full_address: 'Av. Industrial Belgraf, 400', city: 'Eldorado do Sul', state: 'RS', 
-              email: 'contato@dell.com')
+                                full_address: 'Av. Industrial Belgraf, 400', city: 'Eldorado do Sul', state: 'RS', 
+                                email: 'contato@dell.com')
+
+    allow(SecureRandom).to receive(:alphanumeric).with(8).and_return('ABC12345')
+
     # Act
     login_as(user)
     visit root_path
@@ -39,6 +42,7 @@ describe 'usuário cadastra um pedido' do
 
     # Assert
     expect(page).to have_content 'Pedido registrado com sucesso'
+    expect(page).to have_content 'Pedido ABC12345'
     expect(page).to have_content 'Galpão destino: GRU - Aeroporto SP'
     expect(page).to have_content 'Fornecedor: Dell Ltda'
     expect(page).to have_content 'Usuário responsável: Carlos - carlos@email.com'
