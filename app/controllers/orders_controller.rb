@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
   def search
     @code = params["query"]
   
-    @order = Order.find_by(code: @code) 
-    # ou order = Order.find_by(code: params["query"])     Obs.: o find_by traz apenas o 1º item encontrado
+    @orders = Order.where("code LIKE ?", "%#{@code}%") 
+    # Obs.: o where traz um array de itens encontrados. Por isso, aqui usamos a variável no plural (@orders)
   end
 end
