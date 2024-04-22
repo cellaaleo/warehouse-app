@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe '' do
-  it '' do
+describe 'Usuário realiza cadastro' do
+  it 'com sucesso' do
     # Arrange
 
     # Act

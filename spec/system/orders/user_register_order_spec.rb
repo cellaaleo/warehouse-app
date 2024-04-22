@@ -50,4 +50,11 @@ describe 'usuário cadastra um pedido' do
     expect(page).not_to have_content 'Cuiabá' # os not_to deixam mais seguros/fortes os testes
     expect(page).not_to have_content 'ACME LTDA'
   end
+
+  #
+  #
+  # fazer teste de sistema para verificar se a data estimada de entrega é superior à data de pedido!
+  #
+  #
+  
 end
