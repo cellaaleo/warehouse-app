@@ -12,8 +12,17 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     # @order.save! => A validação falhou: User é obrigatório(a)
     @order.user = current_user
-    @order.save
-    redirect_to @order, notice: 'Pedido registrado com sucesso'  
+
+    if @order.save
+      redirect_to @order, notice: 'Pedido registrado com sucesso'
+    else
+      @warehouses = Warehouse.all # pois Failure/Error: <%= f.collection_select :warehouse_id, @warehouses, :id, :full_description %>
+      @suppliers = Supplier.all
+      flash.now[:alert] = 'Não foi possível registrar o pedido'
+      render :new
+    end
+    
+      
     # no redirect_to @objeto, o rails vai encaminhar para o show do objeto (orders/id)
   end
 

@@ -51,6 +51,30 @@ describe 'usuário cadastra um pedido' do
     expect(page).not_to have_content 'ACME LTDA'
   end
 
+  it "e não informa data de entrega" do
+    # Arrange
+    user = User.create!(name: 'Carlos', email: 'carlos@email.com', password: 'password')
+    warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
+                                  address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
+                                  description: 'Galpão destinado a cargas internacionais')
+    supplier = Supplier.create!(corporate_name: 'Dell Ltda', brand_name: 'Dell', registration_number: '25222555/2000-50',
+                                full_address: 'Av. Industrial Belgraf, 400', city: 'Eldorado do Sul', state: 'RS', 
+                                email: 'contato@dell.com')
+    # Act
+    login_as(user)
+    visit root_path
+    click_on 'Registrar pedido'
+    select 'GRU - Aeroporto SP', from: 'Galpão destino'
+    select supplier.corporate_name, from: 'Fornecedor'  # Dell Ltda
+    fill_in 'Data prevista de entrega', with: ''
+    click_on 'Gravar'
+
+    # Assert 
+    expect(page).to have_content 'Não foi possível registrar o pedido'
+    expect(page).to have_content 'Data prevista de entrega não pode ficar em branco'
+  end
+  
+
   #
   #
   # fazer teste de sistema para verificar se a data estimada de entrega é superior à data de pedido!
