@@ -29,4 +29,11 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
+
+  def search
+    @code = params["query"]
+  
+    @order = Order.find_by(code: @code) 
+    # ou order = Order.find_by(code: params["query"])     Obs.: o find_by traz apenas o 1º item encontrado
+  end
 end
