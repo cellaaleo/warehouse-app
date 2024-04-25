@@ -114,3 +114,7 @@ Métodos de busca
 - [Método where: rubyonrails.org](https://api.rubyonrails.org/v6.1.4/classes/ActiveRecord/QueryMethods.html#method-i-where)
 - [Método where: rubyguides.com](https://www.rubyguides.com/2019/07/rails-where-method/)
 - [Tutoriais de SQL](https://www.w3schools.com/sql/default.asp)
+
+Listando pedidos de um usuário
+- [Métodos criados via has_many](https://guiarails.com.br/association_basics.html#referencia-da-associacao-has-many)
+- [Partials com objetos de models](https://guides.rubyonrails.org/layouts_and_rendering.html#rendering-collections)

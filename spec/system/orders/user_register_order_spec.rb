@@ -37,7 +37,7 @@ describe 'usuário cadastra um pedido' do
     click_on 'Registrar pedido'
     select 'GRU - Aeroporto SP', from: 'Galpão destino'
     select supplier.corporate_name, from: 'Fornecedor'  # Dell Ltda
-    fill_in 'Data prevista de entrega', with: '25/04/2024'
+    fill_in 'Data prevista de entrega', with: '25/04/2025'
     click_on 'Gravar'
 
     # Assert
@@ -46,7 +46,7 @@ describe 'usuário cadastra um pedido' do
     expect(page).to have_content 'Galpão destino: GRU - Aeroporto SP'
     expect(page).to have_content 'Fornecedor: Dell Ltda'
     expect(page).to have_content 'Usuário responsável: Carlos - carlos@email.com'
-    expect(page).to have_content 'Data prevista de entrega: 25/04/2024'
+    expect(page).to have_content 'Data prevista de entrega: 25/04/2025'
     expect(page).not_to have_content 'Cuiabá' # os not_to deixam mais seguros/fortes os testes
     expect(page).not_to have_content 'ACME LTDA'
   end
