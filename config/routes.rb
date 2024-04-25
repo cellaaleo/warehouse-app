@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   #get 'buscar-pedido', to: 'orders#search'    #=> buscar_pedido GET    /buscar-pedido(.:format)       orders#search
   resources :orders, only: [:new, :create, :show, :index, :edit, :update] do
     get 'search', on: :collection     #=> search_orders GET    /orders/search(.:format)       orders#search
+    post 'delivered', on: :member #=> on member pois é referente a um único pedido. /// POST /orders/:id/delivered
+    post 'canceled', on: :member
   end
   
   #authenticate :user do
