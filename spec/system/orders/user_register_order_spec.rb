@@ -47,6 +47,8 @@ describe 'usuário cadastra um pedido' do
     expect(page).to have_content 'Fornecedor: Dell Ltda'
     expect(page).to have_content 'Usuário responsável: Carlos - carlos@email.com'
     expect(page).to have_content 'Data prevista de entrega: 25/04/2025'
+    #expect(page).to have_content 'Status do pedido: Pendente'
+    expect(page).to have_content 'Situação do pedido: Pendente'
     expect(page).not_to have_content 'Cuiabá' # os not_to deixam mais seguros/fortes os testes
     expect(page).not_to have_content 'ACME LTDA'
   end

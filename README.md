@@ -118,3 +118,11 @@ Métodos de busca
 Listando pedidos de um usuário
 - [Métodos criados via has_many](https://guiarails.com.br/association_basics.html#referencia-da-associacao-has-many)
 - [Partials com objetos de models](https://guides.rubyonrails.org/layouts_and_rendering.html#rendering-collections)
+
+Testes de requisição
+- [Testes de Requisição com RSpec Rails](https://relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec)
+- [Request specs](https://rspec.info/features/6-0/rspec-rails/request-specs/request-spec/)
+
+Rails Enum
+- [Rails Enum - Documentação](https://api.rubyonrails.org/v5.1/classes/ActiveRecord/Enum.html)
+- [Rails Enum - Artigo da Campus Code](https://www.campuscode.com.br/conteudos/ruby-on-rails-enum?_gl=1*1i9t5a7*_ga*OTA2MjM0Nzg3LjE2OTMzNDA5NDM.*_ga_BG1H65WPRG*MTcxNDA2ODE3MC4yOTkuMS4xNzE0MDY4MTcyLjAuMC4w)

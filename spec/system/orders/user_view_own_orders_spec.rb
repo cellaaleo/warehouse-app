@@ -21,9 +21,12 @@ describe "Usuário vê os próprios pedidos" do
     supplier = Supplier.create!(corporate_name: 'Dell Ltda', brand_name: 'Dell', registration_number: '25222555/2000-50',
                                 full_address: 'Av. Industrial Belgraf, 400', city: 'Eldorado do Sul', state: 'RS', 
                                 email: 'contato@dell.com')
-    first_order = Order.create!(user: ana, warehouse: warehouse, supplier: supplier, estimated_delivery_date: 1.day.from_now)
-    second_order = Order.create!(user: luis, warehouse: warehouse, supplier: supplier, estimated_delivery_date: 1.day.from_now)
-    third_order = Order.create!(user: ana, warehouse: warehouse, supplier: supplier, estimated_delivery_date: 1.week.from_now)
+    first_order = Order.create!(user: ana, warehouse: warehouse, supplier: supplier, 
+                                estimated_delivery_date: 1.day.from_now, status: 'pending')
+    second_order = Order.create!(user: luis, warehouse: warehouse, supplier: supplier, 
+                                estimated_delivery_date: 1.day.from_now, status: 'delivered')
+    third_order = Order.create!(user: ana, warehouse: warehouse, supplier: supplier, 
+                                estimated_delivery_date: 1.week.from_now, status: 'canceled')
 
     # Act
     login_as(ana)
@@ -32,8 +35,11 @@ describe "Usuário vê os próprios pedidos" do
 
     # Assert
     expect(page).to have_content first_order.code
+    expect(page).to have_content 'Pendente'
     expect(page).not_to have_content second_order.code
+    expect(page).not_to have_content 'Entregue'
     expect(page).to have_content third_order.code
+    expect(page).to have_content 'Cancelado'
   end
   
   it "e visita um pedido" do
