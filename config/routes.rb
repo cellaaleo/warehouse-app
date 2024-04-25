@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #resources :orders, only: [:new, :create, :show]
   # rota personalizada
   #get 'buscar-pedido', to: 'orders#search'    #=> buscar_pedido GET    /buscar-pedido(.:format)       orders#search
-  resources :orders, only: [:new, :create, :show, :index] do
+  resources :orders, only: [:new, :create, :show, :index, :edit, :update] do
     get 'search', on: :collection     #=> search_orders GET    /orders/search(.:format)       orders#search
   end
   

@@ -1,4 +1,5 @@
-<h1><%= Order.model_name.human %> <%= @order.code %></h1>
+<h2>Detalhes do pedido</h2>
+<h3><%= Order.model_name.human %> <%= @order.code %></h3>
 
 <dl>
   <dt><%= Order.human_attribute_name(:warehouse_id) %>:</dt>
@@ -10,3 +11,5 @@
   <dt><%= Order.human_attribute_name(:estimated_delivery_date) %>:</dt>
   <dd><%= I18n.localize(@order.estimated_delivery_date) %></dd>
 </dl>
+
+<%= link_to 'Editar', edit_order_path(@order.id) %>
