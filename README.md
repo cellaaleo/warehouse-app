@@ -126,3 +126,6 @@ Testes de requisição
 Rails Enum
 - [Rails Enum - Documentação](https://api.rubyonrails.org/v5.1/classes/ActiveRecord/Enum.html)
 - [Rails Enum - Artigo da Campus Code](https://www.campuscode.com.br/conteudos/ruby-on-rails-enum?_gl=1*1i9t5a7*_ga*OTA2MjM0Nzg3LjE2OTMzNDA5NDM.*_ga_BG1H65WPRG*MTcxNDA2ODE3MC4yOTkuMS4xNzE0MDY4MTcyLjAuMC4w)
+
+Associações Rails
+- [Documentação de has_many_through](https://guiarails.com.br/association_basics.html#a-associacao-has-many-through)
