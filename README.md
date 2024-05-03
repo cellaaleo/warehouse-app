@@ -134,3 +134,8 @@ Associações Rails
 
 Listando estoque de um galpão
 - [Método group](https://guides.rubyonrails.org/active_record_querying.html#group)
+
+Saída de itens do estoque
+- [Documentação de has_one](https://guides.rubyonrails.org/association_basics.html#the-has-one-association)
+- [Documentação sobre associações](https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html)
+- [Método 'missing'](https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods/WhereChain.html#method-i-missing)

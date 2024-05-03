@@ -2,8 +2,10 @@ class WarehousesController < ApplicationController
   before_action :set_warehouse, only: [:show, :edit, :update, :destroy]
 
   def show
-    @stocks = @warehouse.stock_products.group(:product_model).count
+    @stocks = @warehouse.stock_products.where.missing(:stock_product_destination).group(:product_model).count
     # retorna um have onde cada key é um objeto (agrupado) e seus  values são a quantidade de cada objeto (de cada product model)
+    @product_models = ProductModel.all
+    # melhorar o filtro para localizar apenas os product models que estão no galpão
   end 
 
   def new
