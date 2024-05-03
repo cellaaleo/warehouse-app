@@ -11,7 +11,7 @@ class Order < ApplicationRecord
   validate :estimated_delivery_date_is_future
 
   #before_create :generate_code
-  before_validation :generate_code
+  before_validation :generate_code, on: :create
 
   private
 
