@@ -131,3 +131,6 @@ Associações Rails
 - [Documentação de has_many_through](https://guiarails.com.br/association_basics.html#a-associacao-has-many-through)
 - [Métodos do has_many](https://guiarails.com.br/association_basics.html#metodos-adicionados-por-has-many)
 - [Documentação de Nested Resources](https://guiarails.com.br/routing.html#nested-resources-recursos-aninhados)
+
+Listando estoque de um galpão
+- [Método group](https://guides.rubyonrails.org/active_record_querying.html#group)

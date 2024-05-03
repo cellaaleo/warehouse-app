@@ -8,10 +8,24 @@
   <strong>Endereço: </strong> <%= "#{@warehouse.address} CEP: #{@warehouse.cep}" %>
 </div>
 
-
 <div>
   <%= link_to('Editar', edit_warehouse_path(@warehouse))%>
   <%= button_to('Remover', warehouse_path(@warehouse.id), method: :delete) %>
+</div>
+
+<div>
+  <h2>Itens em estoque</h2>
+  
+  <%# @warehouse.stock_products.each do |product| %>
+    <%# product.serial_number %>
+    <%# product.product_model.name %>
+  <%# end %>
+                          <%# |key, value| %>
+  <% @stocks.each_pair do |product, quantity| %>
+    <%= "#{quantity} x #{product.sku}" %>
+  <% end %>
+  
+  
 </div>
 
 <div>

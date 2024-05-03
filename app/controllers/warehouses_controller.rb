@@ -1,7 +1,10 @@
 class WarehousesController < ApplicationController
   before_action :set_warehouse, only: [:show, :edit, :update, :destroy]
 
-  def show; end #usando ; para deixar método vazio em uma linha só
+  def show
+    @stocks = @warehouse.stock_products.group(:product_model).count
+    # retorna um have onde cada key é um objeto (agrupado) e seus  values são a quantidade de cada objeto (de cada product model)
+  end 
 
   def new
     @warehouse = Warehouse.new
