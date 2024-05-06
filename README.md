@@ -145,3 +145,7 @@ REST API
 - [Manipulando JSON com Ruby](https://ruby-doc.org/stdlib-3.0.0/libdoc/json/rdoc/JSON.html)
 - [Status HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
 - [O modo API do Rails](https://guides.rubyonrails.org/api_app.html)
+
+endpoint 
+- [Método as_json](https://api.rubyonrails.org/v6.0.2.2/classes/ActiveModel/Serializers/JSON.html)
+- [Tratando erros em Ruby](https://guru-sp.github.io/tutorial_ruby/excecoes.html)
