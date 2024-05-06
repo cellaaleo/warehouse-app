@@ -22,4 +22,10 @@ Rails.application.routes.draw do
   #authenticate :user do
   #  resources :product_models, only: [:index, :new, :create, :show]
   #end
+
+  namespace :api do # O namespace engloba algumas rotas em volta de um nome que deve ser refletido no nome do controller
+    namespace :v1 do
+      resources :warehouses, only: [:show]  # api_v1_warehouse GET    /api/v1/warehouses/:id(.:format)    api/v1/warehouses#show
+    end
+  end
 end

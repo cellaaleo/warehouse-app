@@ -139,3 +139,9 @@ Saída de itens do estoque
 - [Documentação de has_one](https://guides.rubyonrails.org/association_basics.html#the-has-one-association)
 - [Documentação sobre associações](https://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html)
 - [Método 'missing'](https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods/WhereChain.html#method-i-missing)
+
+REST API
+- [Sobre o formato JSON](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+- [Manipulando JSON com Ruby](https://ruby-doc.org/stdlib-3.0.0/libdoc/json/rdoc/JSON.html)
+- [Status HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
+- [O modo API do Rails](https://guides.rubyonrails.org/api_app.html)
