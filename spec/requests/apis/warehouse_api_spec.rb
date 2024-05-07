@@ -33,7 +33,7 @@ describe "Warehouse API" do
   end
   
   context "GET /api/v1/warehouses" do
-    it "success" do
+    it "list all warehouses" do
       # Arrange
       first_warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                                           address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
@@ -63,6 +63,72 @@ describe "Warehouse API" do
       expect(response.content_type).to include 'application/json'
       json_response = JSON.parse(response.body)
       expect(json_response).to eq []
+    end
+    
+    it "and raise an internal error" do
+      # Arrange
+      allow(Warehouse).to receive(:all).and_raise(ActiveRecord::QueryCanceled)
+      # Act
+      get '/api/v1/warehouses'
+      # Assert
+      expect(response).to have_http_status(500)
+    end
+    
+  end
+
+  context "POST /api/v1/warehouses" do
+    it "success" do
+      # Arrange
+      warehouse_params = { warehouse: {name: "Galpão da Ilha", code: "FLR", city: "Florianópolis",
+                                        area: 35_000, address: "Praia do Campech, 100", cep: "88058-300",
+                                        description: "Um galpão especializado na região sul" }
+                         }
+      # Act
+      post '/api/v1/warehouses', params: warehouse_params
+      # Assert
+      #expect(response.status).to eq 201
+      #expect(response).to have_http_status(:created) ou
+      expect(response).to have_http_status(201)
+      expect(response.content_type).to include 'application/json'
+      json_response = JSON.parse(response.body)
+      expect(json_response["name"]).to eq 'Galpão da Ilha'
+      expect(json_response["code"]).to eq 'FLR'
+      expect(json_response["city"]).to eq 'Florianópolis'
+      expect(json_response["area"]).to eq 35000
+      expect(json_response["address"]).to eq 'Praia do Campech, 100'
+      expect(json_response["cep"]).to eq '88058-300'
+      expect(json_response["description"]).to eq 'Um galpão especializado na região sul'
+    end
+    
+    it "fail if parameters are not complete" do
+      # Arrange
+      warehouse_params = { warehouse: {name: "Galpão da Ilha", code: "FLR" } }
+      # Act
+      post '/api/v1/warehouses', params: warehouse_params
+      # Assert
+      expect(response).to have_http_status(412)
+      expect(response.body).not_to include('Nome não pode ficar em branco')
+      expect(response.body).not_to include('Código não pode ficar em branco')
+      expect(response.body).to include('Cidade não pode ficar em branco')
+      expect(response.body).to include('Descrição do galpão não pode ficar em branco')
+      expect(response.body).to include('Endereço não pode ficar em branco')
+      expect(response.body).to include('CEP não pode ficar em branco')
+      expect(response.body).to include('Área não pode ficar em branco')
+    end
+    
+    it "fail if there is an internal error" do
+      # Arrange - Mock => interferir na execução do código usando métodos do rspec para disparar um erro
+      allow(Warehouse).to receive(:new).and_raise(ActiveRecord::ActiveRecordError)
+
+      warehouse_params = { warehouse: { name: "Galpão da Ilha", code: "FLR", city: "Florianópolis",
+                                        area: 35_000, address: "Praia do Campech, 100", cep: "88058-300",
+                                        description: "Um galpão especializado na região sul" }
+                          }
+      # Act - postar dados completos para criar um galpão 
+      post '/api/v1/warehouses', params: warehouse_params
+
+      # Assert - algum erro 500
+      expect(response).to have_http_status(500)
     end
     
   end

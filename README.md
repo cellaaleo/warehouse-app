@@ -145,7 +145,11 @@ REST API
 - [Manipulando JSON com Ruby](https://ruby-doc.org/stdlib-3.0.0/libdoc/json/rdoc/JSON.html)
 - [Status HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
 - [O modo API do Rails](https://guides.rubyonrails.org/api_app.html)
-
-endpoint 
 - [Método as_json](https://api.rubyonrails.org/v6.0.2.2/classes/ActiveModel/Serializers/JSON.html)
-- [Tratando erros em Ruby](https://guru-sp.github.io/tutorial_ruby/excecoes.html)
+- [Tratando erros em Ruby - rescue](https://guru-sp.github.io/tutorial_ruby/excecoes.html)
+- [Request spec - providing json data](https://rspec.info/features/6-0/rspec-rails/request-specs/request-spec/)
+- [Método have_http_status](https://rspec.info/documentation/3.5/rspec-rails/RSpec/Rails/Matchers/HaveHttpStatus/GenericStatus.html)
+- [TDD em APIs com Rails](https://www.campuscode.com.br/conteudos/ruby-on-rails-api-com-tdd?_gl=1*1vurava*_ga*OTA2MjM0Nzg3LjE2OTMzNDA5NDM.*_ga_BG1H65WPRG*MTcxNTAwOTA4OS4zNDAuMS4xNzE1MDExOTI1LjAuMC4w)
+- [Método rescue_from](https://edgeapi.rubyonrails.org/classes/ActiveSupport/Rescuable/ClassMethods.html)
+- [Retornando erros com RSpec Mocks](https://github.com/rspec/rspec-mocks#setting-responses)
+- [Active Record Errors](https://api.rubyonrails.org/classes/ActiveRecord/ActiveRecordError.html)
