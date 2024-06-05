@@ -157,3 +157,6 @@ REST API
 Consumindo a API
 - [curl para consumir APIs](https://www.campuscode.com.br/conteudos/comandos-curl-para-testar-requisicoes-api?_gl=1*kua8kx*_ga*OTA2MjM0Nzg3LjE2OTMzNDA5NDM.*_ga_BG1H65WPRG*MTcxNTE4ODIyNi4zNDcuMS4xNzE1MTg4ODQ4LjAuMC4w)
 - [extensão RESTer do Firefox](https://addons.mozilla.org/pt-PT/firefox/addon/rester/)
+
+CORS - Configurando nossa API
+- [gem rack-cors](https://github.com/cyu/rack-cors)
